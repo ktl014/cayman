@@ -1,0 +1,18 @@
+1 fish egg
+2 fish larvae
+3 copepod/nauplius
+4 larvacean
+5 chaetognath
+6 diatom
+7 sinophonophore
+8 jelly_other
+9 iso/amph/shrimp
+10 trichodesmium
+11 radiolarian
+12 echino larvae
+13 pteropod
+14 rhizarian
+15 to_id/nothing/blurry
+17 bubble
+18 hatching egg
+19 larvae
