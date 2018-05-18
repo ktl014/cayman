@@ -64,7 +64,7 @@ def evaluate_model(args, db_object, log_object):
         output = model.forward(batch, batch_size)
         probs.append(output)
 
-        print('Samples computed {} / {} ({:.0f}%     \r'.format(i, nSmpl, 100.0*i/nSmpl), end='')
+        print('Samples computed {} / {} ({:.0f}%)     \r'.format(i, nSmpl, 100.0*i/nSmpl), end='')
     print()
 
     #TODO figure out how to output top 5 predictions
@@ -92,7 +92,7 @@ def evaluate_model(args, db_object, log_object):
 
 
 def print_eval(eval_metrics):
-    print('Evaluation Results\n')
+    print('Evaluation Results')
     for metric in eval_metrics:
         if not isinstance(eval_metrics[metric], (int,float)):
             continue

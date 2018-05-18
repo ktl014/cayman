@@ -33,6 +33,7 @@ def parse_cmds():
 
 def train_model(args, LMDBs):
     solver_proto = args.root + 'caffe/solver.prototxt'
+    train_proto = args.root + 'caffe/train_val.prototxt'
     weights = args.root + 'caffe/bvlc_reference_caffenet.caffemodel'
     model_filename = os.path.join(args.root, 'records', args.model_name, 'version_{}'.format(args.exp), 'model.caffemodel')
     if DEBUG:
@@ -40,7 +41,7 @@ def train_model(args, LMDBs):
         exit(0)
 
     model = ClassModel()
-    model.prep_for_training(solver_proto=solver_proto, weights=weights, LMDBs=LMDBs, gpu_id=args.gpu)
+    model.prep_for_training(solver_proto=solver_proto, train_proto=train_proto, weights=weights, LMDBs=LMDBs, gpu_id=args.gpu)
 
     test_iters = args.test_iters
     since = time.time()
@@ -48,7 +49,7 @@ def train_model(args, LMDBs):
         for i in range(test_iters):
             model.train(n=1)
     except KeyboardInterrupt:
-        print('Training interrupted. Current model will be saved at {}'.format())
+        print('Training interrupted. Current model will be saved at {}'.format(model_filename))
     finally:
         model.save(model_filename)
         time_elapsed = time.time() - since
