@@ -62,6 +62,51 @@ def create_dataset(version=1):
         # image_counts = sorted(new_df['label'].value_counts(), reverse=True)
         # new_df = new_df.drop (new_df[new_df['label'] == 6].sample(n=image_counts[0] - image_counts[1]).index)
         #TODO Fix class labels
+    elif version == 2:
+        new_df = pd.DataFrame()
+        changed_labels = sorted([1, 7, 8, 14, 17])
+        for i in range(1,20):
+            temp = df[df['label'] == i]
+            if i in changed_labels:
+                if i == 8:  # Jelly fish class
+                    temp = temp.sample(n=1400)
+                temp.loc[temp['label'] == i, 'label'] = changed_labels.index(i) + 1
+                new_df = new_df.append (temp, ignore_index=True)
+    elif version == 3:
+        new_df = pd.DataFrame()
+        minImgs = 50
+        for i in range(1,20):
+            temp = df[df['label'] == i]
+            if i == 1:
+                temp.loc[temp['label'] == i, 'label'] = 1
+            else:
+                if temp.shape[0] > minImgs:
+                    temp = temp.sample(n=minImgs)
+                temp.loc[temp['label'] == i, 'label'] = 0
+            new_df = new_df.append (temp, ignore_index=True)
+    elif version == 4:
+        # Append predictions to it
+        pred_df = pd.DataFrame ()
+        for i in range (2):
+            filename = os.path.join (ROOT, 'rawdata/d3_predictions{}.txt'.format (i))
+            temp = pd.read_csv (filename, sep=',', names=['image', 'day', 'label'], header=None)
+            pred_df = pred_df.append (temp, ignore_index=True)
+        pred_df['day'] = pred_df['day'].map ({'Thu Feb 16': 'EC3', 'Wed Feb 15': 'EC2', 'Fri Feb 17': 'EC3'})
+        df = df.append (pred_df)
+
+        new_df = pd.DataFrame ()
+        minImgs = 50
+        for i in range (20):
+            temp = df[df['label'] == i]
+            if i == 0:
+                temp.loc[temp['label'] == i, 'label'] = 0
+            elif i == 1:
+                temp.loc[temp['label'] == i, 'label'] = 1
+            else:
+                if temp.shape[0] > minImgs:
+                    temp = temp.sample (n=minImgs)
+                temp.loc[temp['label'] == i, 'label'] = 0
+            new_df = new_df.append (temp, ignore_index=True)
     else:
         new_df = df
 
@@ -94,8 +139,8 @@ class SPCDataset(object):
         self.lmdb_path = os.path.join(self.data_dir, '{}.LMDB'.format(self.phase))
 
     def __repr__(self):
-        return 'Dataset [{}] {} classes, {} images'.\
-            format(self.phase, self.numclasses, self.size)
+        return 'Dataset [{}] {} classes, {} images\n{}'.\
+            format(self.phase, self.numclasses, self.size, self.data['label'].value_counts())
 
     def get_fns(self):
         '''
@@ -149,10 +194,10 @@ class SPCDataset(object):
 
 if __name__ == '__main__':
     #TODO throw in catch function if dataset hasn't been created
-    create_dataset()
+    version = 4
+    create_dataset(version=version)
     root = '/data6/lekevin/cayman'
     img_dir = '/data6/lekevin/cayman/rawdata'
-    version = 1
     csv_filename = os.path.join(root, 'data', str(version), 'data_{}.csv')
 
     # Test initialization

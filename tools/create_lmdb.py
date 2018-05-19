@@ -15,7 +15,7 @@ import argparse
 import sys
 import time
 
-from preprocessing import aspect_resize
+from preprocessing import aspect_resize, convert_to_8bit
 from dataset import SPCDataset
 
 DEBUG = True
@@ -24,7 +24,7 @@ ALL = ['train', 'val', 'test']
 def parse_cmd():
     parser = argparse.ArgumentParser(description='Prepare datasets')
     parser.add_argument('-d', '--dataset', default=1, help='Dataset. Version: 1')
-    parser.add_argument('--partition', nargs='+', type=str, default=ALL, help='Type of dataset. Allows one or more types to be created. Options: train, val, test')
+    parser.add_argument('--phase', nargs='+', type=str, default=ALL, help='Type of dataset. Allows one or more types to be created. Options: train, val, test')
     parser.add_argument('--root', default='/data6/lekevin/cayman')
     parser.add_argument('--image_dir', default='/data6/lekevin/cayman/rawdata', help=' Directory containing all images. Images should be stored at '
                         ' {BASEDIR}/{DAY}/{FN} where file names FN are given by the lines of the csv file.')
@@ -35,7 +35,8 @@ def parse_cmd():
 
 def write_caffe_lmdb(img_fns, lbls, output_fn):
     def preprocessing(img):
-        img = (img*255).astype(np.uint8)
+        #mg = (img*255).astype(np.uint8)
+        img = convert_to_8bit(img)
         img = aspect_resize(img)
         img = img[:,:, (2,1,0)]
         img = np.transpose(img, (2,0,1))
@@ -66,7 +67,7 @@ def main(args):
 
     # Try to find exisiting data file path and create LMDB under the version
     csv_filename = os.path.join(args.root, 'data', str(args.dataset), 'data_{}.csv')
-    for phase in args.partition:
+    for phase in args.phase:
         dataset = SPCDataset(csv_filename=csv_filename.format(phase), img_dir=args.image_dir, phase=phase)
         print(dataset)
 
