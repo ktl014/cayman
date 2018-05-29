@@ -111,3 +111,4 @@ Accuracy for fish egg/non-fish egg classes on validation set using AlexNet
 Correctly predicted fish egg counts and size detection from test set after quality control from PhD biologist Brian Stock from the Semmens Lab at Scripps Institution of Oceanography
 - / 3382 (%) predicted fish egg images
 - / 3382 (%) valid object size detection
+
