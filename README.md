@@ -50,6 +50,7 @@ What research has come out of this interest?
 
 From this field study, the massive amount of data to process by hand leads us to our problem.
 
+![part2.png](media/part2.jpeg)
 ## Part 2: Problem
 #### The "Fishy" Dilemna
 Given 225,000 images collected from the Cayman Field study, how do we determine the Nassau population size from this distribution? 
@@ -60,6 +61,7 @@ PhD Biologist Candidate from the Semmens Lab & Jaffe Lab
 ### Objective
 Develop a model to detect all possible fish eggs from the sample and measure the size of the predicted fish eggs to determine it as a Nassau species
 
+![part3.png](media/part3.png)
 ## Part 3: Dataset & Preprocessing
 #### Dataset
 With the need for fish egg detection, the dataset will be organized for binary fish egg classification. Originallly, the data
@@ -93,6 +95,7 @@ Preprocessing was an essential step, since our raw image was as raw as it could 
 to determine patterns, each image was converted into a color 8 bit. This brightened certain features of the
 raw images. It was then resized while maintaining the aspect ratio. Finally, the images were 227x227.
 
+![part4.jpeg](media/part4.jpeg)
 ## Part 4: Model
 To begin the training step, the standard pretrained CNN model, AlexNet, is used as our preliminary model for classification. 
 AlexNet is a light weight model, due to the number of parameters utilized and time to train, which is why it is typical to start off with it
@@ -129,15 +132,26 @@ techniques for this problem, rather than a neural network, because it was deemd 
 such a small project. 
 
 ### Computer Vision Algorithm
-1) Schar Edge Detection
+1) Scharr Edge Detection
 2) Dilation
 3) Erosion
 4) Detect minimum area of contours
 5) Calculate midpoints across each side & distance between each as diameter
 
-#### Schar Edge Detection
+#### Scharr Edge Detection
+Edge detection is one of the most fundamental operations known to image processing. It helps with processing the necessary
+amount of pixels for an image while maintaing the structural aspect of it. The Scharr edge detection scheme involves using gradients
+to detect the edges, since the pixel intensity significantly changes. The "changing" aspect is key to the utilization of gradients, since they
+point in the steepest direction of change. This scheme is different from other processing, such as Sobel and Laplace, due to use of a 3x3 kernel for providing
+more accurate derivatives when convolving with the image.
 
-INSERT PICTURE OF SCHAR EDGE DETECTION
+If we define A as the source image and Gx and Gy are two images where the points contain vertical and horizontal approximations, then we are given enough
+information to calculate our gradient.
+
+![scharr.png](media/scharr.png)
+
+#### Dilation
+Dilation is...
 
 ![object.png](media/object_detection.png)
 
