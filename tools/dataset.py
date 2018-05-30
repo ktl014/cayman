@@ -19,13 +19,17 @@ def create_dataset(version=1):
     # Read in filename/label text files
     df = pd.DataFrame()
     rawdata_path = [os.path.join(ROOT,'rawdata','{}_SPC_Images_3-COLOR'.format(i)) for i in ['EC1', 'EC2', 'EC3']]
-    for i in range(3):
+    for i in range(4):
+        parse_param = {'sep':' ', 'names':['image', 'label', 'cool_example']}
         if i == 2:
             filename = os.path.join(ROOT, 'rawdata/yolksac.txt')
+        elif i == 3:
+            filename = '/data6/lekevin/cayman/rawdata/d3_predictions1.txt'
+            parse_param = {'sep':',', 'names':['image', 'day', 'label']}
         else:
             filename = os.path.join(ROOT,'rawdata/classes_EC{}_1516combined.txt'.format(i+1))
-        temp = pd.read_csv(filename, sep=' ', names=['image', 'label', 'cool_example'], header=None)
-        temp['day'] = ['EC{}'.format(i+1)] * temp.shape[0]
+        temp = pd.read_csv(filename, sep=parse_param['sep'], names=parse_param['names'], header=None)
+        temp['day'] = ['EC{}'.format(i+1)] * temp.shape[0] if i != 3 else temp['day'].map ({'Thu Feb 16': 'EC3', 'Wed Feb 15': 'EC2', 'Fri Feb 17': 'EC3'})
         df = df.append(temp, ignore_index=True)
 
     # Map class labels to numeric labels
@@ -107,6 +111,15 @@ def create_dataset(version=1):
                     temp = temp.sample (n=minImgs)
                 temp.loc[temp['label'] == i, 'label'] = 0
             new_df = new_df.append (temp, ignore_index=True)
+    elif version == 5:
+        # Uniform distribution of images among each class
+        img_counts = df['label'].value_counts().to_dict()
+        avg_img =int(df['label'].value_counts().mean())
+        sampled_classes = {k:v for k,v in img_counts.items() if v > avg_img}
+        for cls in sampled_classes:
+            temp = df[df['label'] == cls].sample(n=sampled_classes[cls]-avg_img, random_state=123)
+            df = df.drop(temp.index)
+        new_df = df
     else:
         new_df = df
 
@@ -138,6 +151,15 @@ class SPCDataset(object):
         self.numclasses = len(self.data['label'].unique())
         self.lmdb_path = os.path.join(self.data_dir, '{}.LMDB'.format(self.phase))
 
+        shuffle_images = (self.phase == 'train' or self.phase == 'val')
+        if shuffle_images:
+            self.data = self.data.iloc[np.random.permutation(self.size)]
+            self.data = self.data.reset_index(drop=True)
+
+        #TODO Give option to user to create lmdb after making dataset if he wants to
+        # if not os.path.exists(self.lmdb_path):
+
+
     def __repr__(self):
         return 'Dataset [{}] {} classes, {} images\n{}'.\
             format(self.phase, self.numclasses, self.size, self.data['label'].value_counts())
@@ -147,10 +169,6 @@ class SPCDataset(object):
         Return filenames and labels
         :return: fns: list, lbls: array
         '''
-        shuffle_images = (self.phase == 'train' or self.phase == 'val')
-        if shuffle_images:
-            self.data = self.data.iloc[np.random.permutation(self.size)]
-            self.data = self.data.reset_index(drop=True)
 
         # Append full path to images
         path_map = {i:os.path.join(self.img_dir, '{}_SPC_Images_3-COLOR'.format(i)) for i in self.data['day'].unique()}
@@ -191,10 +209,16 @@ class SPCDataset(object):
         print ("LMDB successfully loaded")
         return data, labels
 
+    @staticmethod
+    def map_labels(dataframe, label_file, mapped_column):
+        with open(label_file, "r") as f:
+            mapped_labels = {int(k): v for line in f for (k, v) in (line.strip ().split (None, 1),)}
+        dataframe['class'] = dataframe[mapped_column].map(mapped_labels)
+        return dataframe
 
 if __name__ == '__main__':
     #TODO throw in catch function if dataset hasn't been created
-    version = 4
+    version = 5
     create_dataset(version=version)
     root = '/data6/lekevin/cayman'
     img_dir = '/data6/lekevin/cayman/rawdata'

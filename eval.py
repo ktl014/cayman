@@ -11,6 +11,7 @@ import sys
 import os
 import time
 import numpy as np
+import cPickle as pickle
 
 from model import ClassModel
 from tools.dataset import SPCDataset
@@ -36,7 +37,7 @@ def evaluate_model(args, db_object, log_object):
     from sklearn.metrics import roc_auc_score
     try:
 
-        deploy_proto = args.root + 'caffe/deploy.prototxt'
+        deploy_proto = args.root + 'caffe/{}/deploy.prototxt'.format(args.model_name)
         model_dir = os.path.join(args.root, 'records', args.model_name, 'version_{}'.format(args.exp))
         selected_weights = [os.path.join(model_dir,i) for i in os.listdir(model_dir) if i.endswith('.caffemodel')][-1]
     except:
@@ -78,13 +79,13 @@ def evaluate_model(args, db_object, log_object):
     log_object.log(eval_metrics)
     log_object.save()
     img_paths, _ = db_object.get_fns()
-    save_predictions(img_paths, gtruth, predictions, probs, log_object.saveDir + '/{}_predictions.csv'.format(args.phase))
+    label_file = os.path.join(str(args.root), 'data', str(args.dataset), 'labels.txt')
+    save_predictions(img_paths, gtruth, predictions, probs, label_file, log_object.saveDir + '/{}_predictions.csv'.format(args.phase))
 
     return eval_metrics
 
     #TODO tools
     '''
-    1) save predictions to csv file
     2) output CM
     3) output ROC Curve
     4) output predictions to json

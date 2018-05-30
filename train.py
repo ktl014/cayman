@@ -21,7 +21,7 @@ def parse_cmds():
     parser = argparse.ArgumentParser(description='Train Cayman Classification Model')
     parser.add_argument('--root', default='/data6/lekevin/cayman/')
     parser.add_argument('--dataset', type=str, default=1, help='Dataset version')
-    parser.add_argument('--model_name', type=str, default='model_d1')
+    parser.add_argument('--model_name', type=str, default='caffenet')
     parser.add_argument('--img_dir', default='/data6/lekevin/cayman/rawdata', help='Image directory')
     parser.add_argument('--gpu', type=int, default=0, help='GPU ID')
     parser.add_argument('--exp', '-e', default=1, help='Experiment version')
@@ -32,9 +32,12 @@ def parse_cmds():
     return args
 
 def train_model(args, LMDBs):
-    solver_proto = args.root + 'caffe/solver.prototxt'
-    train_proto = args.root + 'caffe/train_val.prototxt'
-    weights = args.root + 'caffe/bvlc_reference_caffenet.caffemodel'
+    model_weights = {'caffenet':'caffenet/bvlc_reference_caffenet.caffemodel',
+                     'resnet-50':'resnet-50/ResNet-50-model.caffemodel',
+                     'vgg19':'vgg19/VGG_ILSVRC_19_layers.caffemodel'}
+    solver_proto = args.root + 'caffe/{}/solver.prototxt'.format(args.model_name)
+    train_proto = args.root + 'caffe/{}/train_val.prototxt'.format(args.model_name)
+    weights = args.root + 'caffe/{}'.format(model_weights[args.model_name])
     model_filename = os.path.join(args.root, 'records', args.model_name, 'version_{}'.format(args.exp), 'model.caffemodel')
     if DEBUG:
         print(solver_proto, weights, model_filename)

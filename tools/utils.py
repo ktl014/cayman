@@ -11,6 +11,8 @@ import pandas as pd
 from collections import OrderedDict
 import os
 
+from dataset import SPCDataset
+
 def plot_confusion_matrix(cm, classes, normalize=False, title='Confusion matrix', cmap=plt.cm.Blues):
     """
     This function prints and plots the confusion matrix.
@@ -21,8 +23,6 @@ def plot_confusion_matrix(cm, classes, normalize=False, title='Confusion matrix'
         print("Normalized confusion matrix")
     else:
         print('Confusion matrix, without normalization')
-
-    print(cm)
 
     plt.imshow(cm, interpolation='nearest', cmap=cmap)
     plt.title(title)
@@ -108,7 +108,7 @@ def plot_roc_curve(gtruth, predictions, num_class):
     plt.legend (loc="lower right")
     plt.show ()
 
-def save_predictions(img_paths, gtruth, predictions, probs, output_fn):
+def save_predictions(img_paths, gtruth, predictions, probs, label_file, output_fn):
     # df = pd.DataFrame({
     #     'image':img_paths,
     #     'gtruth':gtruth,
@@ -121,6 +121,7 @@ def save_predictions(img_paths, gtruth, predictions, probs, output_fn):
     data['predictions'] = predictions
     data['confidence_level'] = calculate_confidence_lvl(probs)
     df = pd.DataFrame(data)
+    df = map_labels(df, label_file, 'predictions')
     try:
         df.to_csv(output_fn)
     except:
