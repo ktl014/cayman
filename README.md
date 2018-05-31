@@ -1,10 +1,14 @@
-# README
+# Cayman Island Field Study
 Cayman - AlexNet Model trained for binary fish egg classification 
 
 Overview
-- Cayman is a collection of python scripts to train a CNN for binary fish egg classification, which serves the purpose for estimating Nassau Grouper population sizes.
+- Cayman is a collection of python scripts to train a CNN for binary fish egg classification. Predictive modeling for this problem will translate into a 
+mechanistic understanding of why the endangered reef fish, Nassau Grouper (Ephinephelus striatus) in the Cayman Islands, decline and recover in population size. Such an understanding
+will ultimately help with protecting the species.
 - Version: 1.00a
 - Authors: Kevin Le
+
+![scripps.png](media/scrippsucsd.png)
 
 ## Prerequisites
 - python 2.7. (with scikit-image and lmdb)
@@ -42,7 +46,8 @@ SHOW GIF OF BINARY FISH EGG DETECTION
 5. Object Size Detection
 6. Conclusion
 
-## Part 1: Introduction
+![part1.png](media/part1.jpg)
+
 What are Nassau Groupers?
 Where are they found?
 Why are they interesting?
