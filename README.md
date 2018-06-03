@@ -56,7 +56,7 @@ What research has come out of this interest?
 Fish population fluctuate alot due to environmental conditions, such as food and predator distributions. Other factors, such as fine-scale patichness
 also influences the survival of the fish larvae and eggs, but is impossible to resolve using traditional net sampling techniques.
 
-![part2.png](media/part2.jpg)
+![part2.png](media/part2_a.jpg)
 
 #### The "Fishy" Dilemna
 Given 225,000 images collected from the Cayman Field study, how do we determine the Nassau population size from this distribution? 
@@ -161,7 +161,7 @@ Dilation is...
 
 ![object.png](media/object_detection.png)
 
-![part6.png](media/part6.jpg)
+![part6.png](media/part6_a.jpg)
 
 We now have a model and an object size detection to identify Nassau grouper. If you've read this far
 into my article, I thank you very much and appreciate your interest in my work. I only hope the best for you
