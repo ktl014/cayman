@@ -53,10 +53,11 @@ Where are they found?
 Why are they interesting?
 What research has come out of this interest?
 
-From this field study, the massive amount of data to process by hand leads us to our problem.
+Fish population fluctuate alot due to environmental conditions, such as food and predator distributions. Other factors, such as fine-scale patichness
+also influences the survival of the fish larvae and eggs, but is impossible to resolve using traditional net sampling techniques.
 
-![part2.png](media/part2.jpeg)
-## Part 2: Problem
+![part2.png](media/part2.jpg)
+
 #### The "Fishy" Dilemna
 Given 225,000 images collected from the Cayman Field study, how do we determine the Nassau population size from this distribution? 
 
@@ -66,8 +67,7 @@ PhD Biologist Candidate from the Semmens Lab & Jaffe Lab
 ### Objective
 Develop a model to detect all possible fish eggs from the sample and measure the size of the predicted fish eggs to determine it as a Nassau species
 
-![part3.png](media/part3.png)
-## Part 3: Dataset & Preprocessing
+![part3.png](media/part3.jpg)
 #### Dataset
 With the need for fish egg detection, the dataset will be organized for binary fish egg classification. Originallly, the data
 was given with up to 18 classes labeled. To train our classifier to perform well for fish egg detection, we need to
@@ -100,8 +100,8 @@ Preprocessing was an essential step, since our raw image was as raw as it could 
 to determine patterns, each image was converted into a color 8 bit. This brightened certain features of the
 raw images. It was then resized while maintaining the aspect ratio. Finally, the images were 227x227.
 
-![part4.jpeg](media/part4.jpeg)
-## Part 4: Model
+![part4.jpeg](media/part4.jpg)
+
 To begin the training step, the standard pretrained CNN model, AlexNet, is used as our preliminary model for classification. 
 AlexNet is a light weight model, due to the number of parameters utilized and time to train, which is why it is typical to start off with it
 to grasp a quick understanding of the dataset's complexities. 
@@ -130,7 +130,8 @@ Correctly predicted fish egg counts and size detection from test set after quali
 - / 3382 (%) predicted fish egg images
 - / 3382 (%) valid object size detection
 
-## Part 5: Object Size Detection
+![part5.png](media/part5.jpg)
+
 As mentioned previously, following the step of detecting the fish eggs from our test set, we would need
 to solve the problem of how to measure these fish eggs. We decide to default for simple image processing
 techniques for this problem, rather than a neural network, because it was deemd to be an "over kill" for
@@ -160,7 +161,8 @@ Dilation is...
 
 ![object.png](media/object_detection.png)
 
-## Part 6: Conclusion
+![part6.png](media/part6.jpg)
+
 We now have a model and an object size detection to identify Nassau grouper. If you've read this far
 into my article, I thank you very much and appreciate your interest in my work. I only hope the best for you
 in your machine learning journey.
