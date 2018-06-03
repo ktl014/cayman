@@ -154,15 +154,9 @@ more accurate derivatives when convolving with the image.
 If we define A as the source image and Gx and Gy are two images where the points contain vertical and horizontal approximations, then we are given enough
 information to calculate our gradient.
 
-![scharr.png](media/scharr.png)
-
-<div style="text-align: right"> your-text-here </div>
-
-<p align="justify">
-  Lorem ipsum
+<p align="center">
+  <img src="https://github.com/ktl014/cayman/blob/master/media/scharr.png">
 </p>
-
-<div style="text-align:center"><span style="color:red; font-family:Georgia; font-size:2em;">The goal of the Women’s Enterprise Action Loan Fund, (WEALF): helping women business owners become financially self-sufficient.</span></div>
 
 #### Dilation
 Dilation is...
