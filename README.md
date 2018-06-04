@@ -152,7 +152,9 @@ AlexNet is a light weight model, due to the number of parameters utilized and ti
 to grasp a quick understanding of the dataset's complexities. 
 
 ![alexnet_model.png](media/alexnet.png)
-Figure 6: AlexNet architecture
+<p align="center">
+  Figure 6: AlexNet architecture
+</p>
 
 Follow this link to view the parameters of our [Alexnet model](http://ethereon.github.io/netscope/#/gist/f86c5ed05f4a155bffbb814a345e0a5f)
 
@@ -211,6 +213,7 @@ Both dilation and erosion are morphology operators, used to apply a structuring 
 
 <p align="center">
   <img src="media/erosion_dilation.png">
+      <br><br>
   Figure 7: Morphology Operators. 1) Resulting Dilation 2) Original Image 3) Resulting Erosion
 </p>
 
