@@ -152,6 +152,7 @@ AlexNet is a light weight model, due to the number of parameters utilized and ti
 to grasp a quick understanding of the dataset's complexities. 
 
 ![alexnet_model.png](media/alexnet.png)
+Figure 6: AlexNet architecture
 
 Follow this link to view the parameters of our [Alexnet model](http://ethereon.github.io/netscope/#/gist/f86c5ed05f4a155bffbb814a345e0a5f)
 
@@ -182,8 +183,7 @@ Correctly predicted fish egg counts and size detection from test set after quali
 ## Object Size Detection
 As mentioned previously, following the step of detecting the fish eggs from our test set, we would need
 to solve the problem of how to measure these fish eggs. We decide to default for simple image processing
-techniques for this problem, rather than a neural network, because it was deemd to be an "over kill" for
-such a small project. 
+techniques for this problem, rather than a neural network, given the number of predicted fish eggs. 
 
 ### Computer Vision Algorithm
 1) Scharr Edge Detection
@@ -211,7 +211,11 @@ Both dilation and erosion are morphology operators, used to apply a structuring 
 
 <p align="center">
   <img src="media/erosion_dilation.png">
+  Figure 7: Morphology Operators. 1) Resulting Dilation 2) Original Image 3) Resulting Erosion
 </p>
+
+#### Detecting the Contours
+After applying our edge detection and morphology operations, our process simplifies down to detecting the contours from the resulting output, which is done through the OpenCV API. The contours will serve as the localization of the fish egg, leaving us with a few geometry and camera magnification conversion steps to determine the egg diameter size. 
 
 ![object.png](media/object_detection.png)
 <br />
@@ -219,9 +223,8 @@ Both dilation and erosion are morphology operators, used to apply a structuring 
 ![part6.png](media/part6_a.jpg)
 ## Conclusion
 
-We now have a model and an object size detection to identify Nassau grouper. If you've read this far
-into my article, I thank you very much and appreciate your interest in my work. I only hope the best for you
-in your machine learning journey.
+We trained a CNN model for binary fish egg classification to assist with annotating over 225,000 images and developed an object size detection algorithm for Nassau Grouper classification. We anticipate that future deployment of this new software could assist with real-time image recognition during field studies and shed further light on the fine-scale processes influencing fish population success.
+
 
 
 
