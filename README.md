@@ -35,8 +35,9 @@ Run this ipython notebook
 
 ## Results
 ### Binary Fish Egg Classification
-
-SHOW GIF OF BINARY FISH EGG DETECTION
+<p align="center">
+  <img src="https://media.giphy.com/media/MU4yBNH9gFoGqaIvEf/giphy.gif">
+</p>
 
 ## Content
 1. [Introduction](#Introduction)
@@ -46,22 +47,30 @@ SHOW GIF OF BINARY FISH EGG DETECTION
 5. [Object Size Detection](#Object-Size-Detection)
 6. [Conclusion](#Conclusion)
 
+
 ![Introduction](media/part1.jpg)
 
 ## Introduction
 
-Fish population fluctuate alot due to environmental conditions, such as food and predator distributions. Other factors, such as fine-scale patichness
-also influences the survival of the fish larvae and eggs, but is impossible to resolve using traditional net sampling techniques.
+Fish population fluctuate alot due to environmental conditions, such as food and predator distributions. Other factors, such as fine-scale patichness also influences the survival of the fish larvae and eggs, but is impossible to resolve using traditional net sampling techniques. Therefore, in order to understand the population decline and recovery of fish, developing tools capable of observing such populations at a fine scale is necessary.
+<br />
+<br />
+In a joint collaboration between Bryce Semmen's and Jules Jaffe's Lab, an investigation was taken to understand the correlation of fine-scale patichness and the population of the endangered reef fish, Nassau Grouper, in the Cayman Islands.
+Due to overfishing at their spawning aggregations, their population have drastically declined throughout the Caribbean. Their aggregation off the Cayman Islands is one of the largest remaining of the species and is continually increasing in size. This study will pertain to understanding how the eggs survive to become spawning adults.
+<br />
+<br />
+In February 2017, a field study was deployed to study the Nassau spawning aggregation, specifically the density of eggs and other plankton at a fine spatial scale. The NetCam, an in situ plankton sampler developed for mechanistic understanding, was towed for three days to collect data during the Nassau's hatching phase. An example of the deployment path is below.
 
 <p align="center">
-  <img src="media/spc_netcam_a.jpg", width="360">
+  <img src="media/spc_netcam_a.jpg">
     <br><br>
-  Figure X: 1) Drifters released at spawning 2) Tow microscope 3) Plankton images
+  Figure X: 1) Drifters released at spawning 2) Underwater image of NetCam being towed 3) Sample of plankton images from NetCam
 </p>
 
-Deployment path
+After this successful study of observing the fine-scale distribution of eggs during their dispersal, over 225,000 images needed to be processed to distinguish the Nassau Grouper eggs from eggs of other fish species and other plankton. Given the tremendous scale of data to be annotated, it is clear that it would be unrealistic for humans to perform such a task. To find value in this big data, new methods would be needed.
+
 <p align="center">
-  <img src="https://media.giphy.com/media/3tJdmAq2vwtGC5XUjl/giphy.gif", width="360">
+  <img src="https://media.giphy.com/media/3tJdmAq2vwtGC5XUjl/giphy.gif">
   <br><br>
   Figure X: Deployment path of Night 2 of the Field Study
 </p>
@@ -71,13 +80,13 @@ Deployment path
 ## Problem
 
 #### The "Fishy" Dilemna
-Given 225,000 images collected from the Cayman Field study, how do we determine the Nassau population size from this distribution? 
+Given 225,000 images collected from the Cayman Field study, how do we reliably determine the Nassau population size from this distribution? 
 
 ### Client
 PhD Biologist Candidate from the Semmens Lab & Jaffe Lab
 
 ### Objective
-Develop a model to detect all possible fish eggs from the sample and measure the size of the predicted fish eggs to determine it as a Nassau species
+Develop a convolutional neural network (CNN) model to detect all possible fish eggs from the sample and measure the size of the predicted fish eggs to determine it as a Nassau species
 
 ![part3.png](media/part3.jpg)
 ## Dataset & Preprocessing
@@ -174,7 +183,7 @@ If we define A as the source image and Gx and Gy are two images where the points
 information to calculate our gradient.
 
 <p align="center">
-  <img src="media/scharr.png", width="360">
+  <img src="media/scharr.png">
 </p>
 
 #### Dilation
@@ -184,6 +193,7 @@ Dilation is...
 
 ![part6.png](media/part6_a.jpg)
 ## Conclusion
+
 We now have a model and an object size detection to identify Nassau grouper. If you've read this far
 into my article, I thank you very much and appreciate your interest in my work. I only hope the best for you
 in your machine learning journey.
