@@ -51,15 +51,16 @@ SHOW GIF OF BINARY FISH EGG DETECTION
 Fish population fluctuate alot due to environmental conditions, such as food and predator distributions. Other factors, such as fine-scale patichness
 also influences the survival of the fish larvae and eggs, but is impossible to resolve using traditional net sampling techniques.
 
-![spc_netcam.jpg](media/spc_netcam_a.jpg)
 <p align="center">
-  <img src="https://media.giphy.com/media/3tJdmAq2vwtGC5XUjl/giphy.gif">
+  <img src="https://github.com/ktl014/cayman/blob/master/media/spc_netcam_a.jpg">
+    <br><br>
   Figure X: 1) Drifters released at spawning 2) Tow microscope 3) Plankton images
 </p>
 
 Deployment path
 <p align="center">
   <img src="https://media.giphy.com/media/3tJdmAq2vwtGC5XUjl/giphy.gif">
+  <br><br>
   Figure X: Deployment path of Night 2 of the Field Study
 </p>
 
@@ -100,6 +101,7 @@ Below is another visual representation of the non-fish egg and fish egg classes
 
 <p align="center">
   <img src="https://github.com/ktl014/cayman/blob/master/media/fish_egg.png">
+    <br><br>
   Figure X: Non-fish egg and fish egg example
 </p>
 
