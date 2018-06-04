@@ -60,7 +60,7 @@ To view the model perform image detection, the user can use the [basic demo](htt
 Fish population fluctuate alot due to environmental conditions, such as food and predator distributions. Other factors, such as fine-scale patichness also influences the survival of the fish larvae and eggs, but is impossible to resolve using traditional net sampling techniques. Therefore, in order to understand the population decline and recovery of fish, developing tools capable of observing such populations at a fine scale is necessary.
 <br />
 <br />
-In a joint collaboration between Bryce Semmen's and Jules Jaffe's Lab, an investigation was taken to understand the correlation of fine-scale patichness and the population of the endangered reef fish, Nassau Grouper, in the Cayman Islands.
+In a joint collaboration between Brice Semmen's and Jules Jaffe's Lab, an investigation was taken to understand the correlation of fine-scale patichness and the population of the endangered reef fish, Nassau Grouper, in the Cayman Islands.
 Due to overfishing at their spawning aggregations, their population have drastically declined throughout the Caribbean. Their aggregation off the Cayman Islands is one of the largest remaining of the species and is continually increasing in size. This study will pertain to understanding how the eggs survive to become spawning adults.
 <br />
 <br />
@@ -71,7 +71,6 @@ In February 2017, a field study was deployed to study the Nassau spawning aggreg
     <br><br>
   Figure 1: 1) Drifters released at spawning 2) Underwater image of NetCam being towed 3) Sample of plankton images from NetCam
 </p>
-<br />
 <br />
 After this successful study of observing the fine-scale distribution of eggs during their dispersal, over 225,000 images needed to be processed to distinguish the Nassau Grouper eggs from eggs of other fish species and other plankton. Given the tremendous scale of data to be annotated, it is clear that it would be unrealistic for humans to perform such a task. To find value in this big data, new methods would be needed.
 
@@ -88,15 +87,14 @@ After this successful study of observing the fine-scale distribution of eggs dur
 ## Problem
 
 #### The "Fishy" Dilemna
-Given 225,000 images collected from the Cayman Field study, how do we reliably determine the Nassau population size from this distribution? 
-
-### Client
-PhD Biologist Candidate from the Semmens Lab & Jaffe Lab
+Given 225,000 images collected from the Cayman Field study, how do we reliably determine the Nassau population size from this distribution of other fish eggs and planktons? 
 
 ### Objective
-Develop a convolutional neural network (CNN) model to detect all possible fish eggs from the sample and measure the size of the predicted fish eggs to determine it as a Nassau species
+Train a convolutional neural network (CNN) model to detect all possible fish eggs from the sample and measure the size of the predicted fish eggs to determine it as a Nassau species. 
+* It is found that there is a specific difference among the fish egg species, based on visual (egg size-frequency) and genetic (DNA barcoding) analysis. Eggs with diameters between 0.89 - 1.10 mm are classified as Nassau Grouper.
 <br />
 <br />
+
 ![part3.png](media/part3.jpg)
 ## Dataset & Preprocessing
 #### Dataset
@@ -132,8 +130,13 @@ Below is another visual representation of the non-fish egg and fish egg classes
 </p>
 
 ### Labeling
-The labeling process for creating our datasets was conducted by PhD Biologist Candidate, Brian Stock, through a GUI interface coded in MATLAB. The data was randomly shuffled and Brian would
-add a class category based on clusters of similar specimens seen in the dataset, resulting in our 18 classes. 
+The labeling process for creating our datasets was conducted by PhD Biologist Candidate, Brian Stock, through a GUI interface coded in MATLAB. The data was randomly shuffled and Brian would add a class category based on clusters of similar specimens seen in the dataset, resulting in our 18 classes. 
+
+<p align="center">
+  <img src="media/labeling.png", width="360">
+  <br><br>
+  Figure 5: MATLAB GUI used for labeling training data
+</p>
 
 ### Preprocessing
 Preprocessing was an essential step, since our raw image was as raw as it could be. To process the network
@@ -203,8 +206,12 @@ information to calculate our gradient.
   <img src="media/scharr.png">
 </p>
 
-#### Dilation
-Dilation is...
+#### Dilation & Erosion
+Both dilation and erosion are morphology operators, used to apply a structuring element to an input image and generate an output image. They have a wide array of uses, such as removing noise, detecting intensity bumps or holes in an image, etc. The operation of dilation involves convolving an image with a kernel to replace current values with its maximum values, smoothening the image structure while maintaining shape and size. It could be thought of as the open filter. On the other hand, erosion is the opposite, which replaces the current pixel with its minimum vaues in order to remove noise and simplify the image.
+
+<p align="center">
+  <img src="media/erosion_dilation.png">
+</p>
 
 ![object.png](media/object_detection.png)
 <br />
