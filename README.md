@@ -66,7 +66,8 @@ In February 2017, a field study was deployed to study the Nassau spawning aggreg
     <br><br>
   Figure X: 1) Drifters released at spawning 2) Underwater image of NetCam being towed 3) Sample of plankton images from NetCam
 </p>
-
+<br />
+<br />
 After this successful study of observing the fine-scale distribution of eggs during their dispersal, over 225,000 images needed to be processed to distinguish the Nassau Grouper eggs from eggs of other fish species and other plankton. Given the tremendous scale of data to be annotated, it is clear that it would be unrealistic for humans to perform such a task. To find value in this big data, new methods would be needed.
 
 <p align="center">
@@ -74,7 +75,8 @@ After this successful study of observing the fine-scale distribution of eggs dur
   <br><br>
   Figure X: Deployment path of Night 2 of the Field Study
 </p>
-
+<br />
+<br />
 ![part2.png](media/part2_a.jpg)
 
 ## Problem
@@ -87,7 +89,8 @@ PhD Biologist Candidate from the Semmens Lab & Jaffe Lab
 
 ### Objective
 Develop a convolutional neural network (CNN) model to detect all possible fish eggs from the sample and measure the size of the predicted fish eggs to determine it as a Nassau species
-
+<br />
+<br />
 ![part3.png](media/part3.jpg)
 ## Dataset & Preprocessing
 #### Dataset
@@ -127,7 +130,8 @@ add a class category based on clusters of similar specimens seen in the dataset,
 Preprocessing was an essential step, since our raw image was as raw as it could be. To process the network
 to determine patterns, each image was converted into a color 8 bit. This brightened certain features of the
 raw images. It was then resized while maintaining the aspect ratio. Finally, the images were 227x227.
-
+<br />
+<br />
 ![part4.jpeg](media/part4.jpg)
 ## Training the Model
 To begin the training step, the standard pretrained CNN model, AlexNet, is used as our preliminary model for classification. 
@@ -157,7 +161,8 @@ Accuracy for fish egg/non-fish egg classes on validation set using AlexNet
 Correctly predicted fish egg counts and size detection from test set after quality control from PhD biologist Brian Stock from the Semmens Lab at Scripps Institution of Oceanography
 - / 3382 (%) predicted fish egg images
 - / 3382 (%) valid object size detection
-
+<br />
+<br />
 ![part5.png](media/part5.jpg)
 ## Object Size Detection
 As mentioned previously, following the step of detecting the fish eggs from our test set, we would need
@@ -190,7 +195,8 @@ information to calculate our gradient.
 Dilation is...
 
 ![object.png](media/object_detection.png)
-
+<br />
+<br />
 ![part6.png](media/part6_a.jpg)
 ## Conclusion
 
