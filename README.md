@@ -39,6 +39,11 @@ Run this ipython notebook
   <img src="https://media.giphy.com/media/MU4yBNH9gFoGqaIvEf/giphy.gif">
 </p>
 
+### Object Size Detection
+<p align="center">
+  <img src="https://media.giphy.com/media/1fiI1T2mNnWUvbiiGc/giphy.gif", width="360">
+</p>
+
 ## Content
 1. [Introduction](#Introduction)
 2. [Problem](#Problem)
