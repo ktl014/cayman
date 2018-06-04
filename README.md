@@ -139,6 +139,7 @@ to determine patterns, each image was converted into a color 8 bit. This brighte
 raw images. It was then resized while maintaining the aspect ratio. Finally, the images were 227x227.
 <br />
 <br />
+
 ![part4.jpeg](media/part4.jpg)
 ## Training the Model
 To begin the training step, the standard pretrained CNN model, AlexNet, is used as our preliminary model for classification. 
@@ -170,7 +171,9 @@ Correctly predicted fish egg counts and size detection from test set after quali
 - / 3382 (%) valid object size detection
 <br />
 <br />
+
 ![part5.png](media/part5.jpg)
+
 ## Object Size Detection
 As mentioned previously, following the step of detecting the fish eggs from our test set, we would need
 to solve the problem of how to measure these fish eggs. We decide to default for simple image processing
