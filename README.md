@@ -133,7 +133,7 @@ Below is another visual representation of the non-fish egg and fish egg classes
 The labeling process for creating our datasets was conducted by PhD Biologist Candidate, Brian Stock, through a GUI interface coded in MATLAB. The data was randomly shuffled and Brian would add a class category based on clusters of similar specimens seen in the dataset, resulting in our 18 classes. 
 
 <p align="center">
-  <img src="media/labeling.png", width="360">
+  <img src="media/labeling.png">
   <br><br>
   Figure 5: MATLAB GUI used for labeling training data
 </p>
