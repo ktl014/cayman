@@ -40,7 +40,7 @@ To view the model perform image detection, the user can use the [basic demo](htt
 
 ### Object Size Detection
 <p align="center">
-  <img src="https://media.giphy.com/media/1fiI1T2mNnWUvbiiGc/giphy.gif", width="360">
+  <img src="https://media.giphy.com/media/1fiI1T2mNnWUvbiiGc/giphy.gif">
 </p>
 
 ## Content
