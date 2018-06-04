@@ -46,7 +46,8 @@ SHOW GIF OF BINARY FISH EGG DETECTION
 5. Object Size Detection
 6. Conclusion
 
-![Introduction](media/part1.jpg)
+![part1.jpg](media/part1.jpg)
+## Introduction
 
 Fish population fluctuate alot due to environmental conditions, such as food and predator distributions. Other factors, such as fine-scale patichness
 also influences the survival of the fish larvae and eggs, but is impossible to resolve using traditional net sampling techniques.
