@@ -48,13 +48,20 @@ SHOW GIF OF BINARY FISH EGG DETECTION
 
 ![part1.png](media/part1.jpg)
 
-What are Nassau Groupers?
-Where are they found?
-Why are they interesting?
-What research has come out of this interest?
-
 Fish population fluctuate alot due to environmental conditions, such as food and predator distributions. Other factors, such as fine-scale patichness
 also influences the survival of the fish larvae and eggs, but is impossible to resolve using traditional net sampling techniques.
+
+![spc_netcam.jpg](media/spc_netcam_a.jpg)
+<p align="center">
+  <img src="https://media.giphy.com/media/3tJdmAq2vwtGC5XUjl/giphy.gif">
+  Figure X: 1) Drifters released at spawning 2) Tow microscope 3) Plankton images
+</p>
+
+Deployment path
+<p align="center">
+  <img src="https://media.giphy.com/media/3tJdmAq2vwtGC5XUjl/giphy.gif">
+  Figure X: Deployment path of Night 2 of the Field Study
+</p>
 
 ![part2.png](media/part2_a.jpg)
 
@@ -84,12 +91,17 @@ in regards to detecting fish eggs.
 | Train        | 1115              | 1019           | 2134           |
 | Validation   | 204              | 173           |  377          |
 | Test         | ---              | ---           | 196169           |
-Dataset statistics table
+
+<p align="center">
+  Dataset Statistics Table
+</p>
 
 Below is another visual representation of the non-fish egg and fish egg classes
 
-![fishegg.png](media/fish_egg.png)
-
+<p align="center">
+  <img src="https://github.com/ktl014/cayman/blob/master/media/fish_egg.png">
+  Figure X: Non-fish egg and fish egg example
+</p>
 
 ### Labeling
 The labeling process for creating our datasets was conducted by PhD Biologist Candidate, Brian Stock, through a GUI interface coded in MATLAB. The data was randomly shuffled and Brian would
