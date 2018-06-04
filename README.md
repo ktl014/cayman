@@ -39,14 +39,14 @@ Run this ipython notebook
 SHOW GIF OF BINARY FISH EGG DETECTION
 
 ## Content
-1. Introduction
+1. [Introduction](Introduction)
 2. Problem
 3. Dataset & Preprocessing
 4. Model
 5. Object Size Detection
 6. Conclusion
 
-![part1.png](media/part1.jpg)
+![Introduction](media/part1.jpg)
 
 Fish population fluctuate alot due to environmental conditions, such as food and predator distributions. Other factors, such as fine-scale patichness
 also influences the survival of the fish larvae and eggs, but is impossible to resolve using traditional net sampling techniques.
