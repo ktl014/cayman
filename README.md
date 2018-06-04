@@ -47,6 +47,7 @@ Run this ipython notebook
 5. [Object Size Detection](#Object-Size-Detection)
 6. [Conclusion](#Conclusion)
 
+<br />
 
 ![Introduction](media/part1.jpg)
 
@@ -77,6 +78,7 @@ After this successful study of observing the fine-scale distribution of eggs dur
 </p>
 <br />
 <br />
+
 ![part2.png](media/part2_a.jpg)
 
 ## Problem
