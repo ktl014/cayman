@@ -39,12 +39,12 @@ Run this ipython notebook
 SHOW GIF OF BINARY FISH EGG DETECTION
 
 ## Content
-1. [Introduction](#Introduction)
-2. [Problem](#Problem)
-3. [Dataset & Preprocessing](#Dataset-&-Preprocessing)
-4. [Training the Model](#Training-the-Model)
-5. [Object Size Detection](#Object-Size-Detection)
-6. [Conclusion](#Conclusion)
+1. [Introduction](##Introduction)
+2. [Problem](##Problem)
+3. [Dataset & Preprocessing](##Dataset-&-Preprocessing)
+4. [Training the Model](##Training-the-Model)
+5. [Object Size Detection](##Object-Size-Detection)
+6. [Conclusion](##Conclusion)
 
 ![Introduction](media/part1.jpg)
 
