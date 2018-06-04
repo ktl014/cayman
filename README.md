@@ -30,8 +30,7 @@ will ultimately help with protecting the species.
 3. Test (unlabelled) set: data/${VERSION}/data_test.csv
 
 ## Examples
-To view the model perform image detection, the user can use the basic demo (HIGHLIGHT DEMO)
-Run this ipython notebook
+To view the model perform image detection, the user can use the [basic demo](https://github.com/ktl014/cayman/blob/master/examples/classify.ipynb) by running it. It can also be found in `examples`
 
 ## Results
 ### Binary Fish Egg Classification
@@ -70,7 +69,7 @@ In February 2017, a field study was deployed to study the Nassau spawning aggreg
 <p align="center">
   <img src="media/spc_netcam_a.jpg">
     <br><br>
-  Figure X: 1) Drifters released at spawning 2) Underwater image of NetCam being towed 3) Sample of plankton images from NetCam
+  Figure 1: 1) Drifters released at spawning 2) Underwater image of NetCam being towed 3) Sample of plankton images from NetCam
 </p>
 <br />
 <br />
@@ -79,7 +78,7 @@ After this successful study of observing the fine-scale distribution of eggs dur
 <p align="center">
   <img src="https://media.giphy.com/media/3tJdmAq2vwtGC5XUjl/giphy.gif">
   <br><br>
-  Figure X: Deployment path of Night 2 of the Field Study
+  Figure 2: Deployment path of Night 2 of the Field Study
 </p>
 <br />
 <br />
@@ -107,6 +106,9 @@ sample a minimum amount of images from 17 of the 18 classes and categorize it as
 Below are image representations of the 18 classes:
 
 ![18_classes.png](media/classes_18.png)
+<p align="center">
+  Figure 3: Classes 1-19 found in Cayman dataset
+</p>
 
 After training the model and receiving reasonable performance on the validation set, the model will be deployed on the test set, which is the main objective of this project
 in regards to detecting fish eggs. 
@@ -126,7 +128,7 @@ Below is another visual representation of the non-fish egg and fish egg classes
 <p align="center">
   <img src="https://github.com/ktl014/cayman/blob/master/media/fish_egg.png">
     <br><br>
-  Figure X: Non-fish egg and fish egg example
+  Figure 4: Non-fish egg and fish egg example
 </p>
 
 ### Labeling
