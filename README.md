@@ -124,7 +124,7 @@ in regards to detecting fish eggs.
 Below is another visual representation of the non-fish egg and fish egg classes
 
 <p align="center">
-  <img src="https://github.com/ktl014/cayman/blob/master/media/fish_egg.png">
+  <img src="media/fish_egg.png">
     <br><br>
   Figure 4: Non-fish egg and fish egg example
 </p>
@@ -188,11 +188,11 @@ to solve the problem of how to measure these fish eggs. We decide to default for
 techniques for this problem, rather than a neural network, given the number of predicted fish eggs. 
 
 ### Computer Vision Algorithm
-1) Scharr Edge Detection
-2) Dilation
-3) Erosion
-4) Detect minimum area of contours
-5) Calculate midpoints across each side & distance between each as diameter
+1. Scharr Edge Detection
+2. Dilation
+3. Erosion
+4. Detect minimum area of contours
+5. Calculate midpoints across each side & distance between each as diameter
 
 #### Scharr Edge Detection
 Edge detection is one of the most fundamental operations known to image processing. It helps with processing the necessary
