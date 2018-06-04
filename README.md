@@ -54,14 +54,14 @@ Fish population fluctuate alot due to environmental conditions, such as food and
 also influences the survival of the fish larvae and eggs, but is impossible to resolve using traditional net sampling techniques.
 
 <p align="center">
-  <img src="https://github.com/ktl014/cayman/blob/master/media/spc_netcam_a.jpg">
+  <img src="media/spc_netcam_a.jpg", width="360">
     <br><br>
   Figure X: 1) Drifters released at spawning 2) Tow microscope 3) Plankton images
 </p>
 
 Deployment path
 <p align="center">
-  <img src="https://media.giphy.com/media/3tJdmAq2vwtGC5XUjl/giphy.gif">
+  <img src="https://media.giphy.com/media/3tJdmAq2vwtGC5XUjl/giphy.gif", width="360">
   <br><br>
   Figure X: Deployment path of Night 2 of the Field Study
 </p>
@@ -174,7 +174,7 @@ If we define A as the source image and Gx and Gy are two images where the points
 information to calculate our gradient.
 
 <p align="center">
-  <img src="https://github.com/ktl014/cayman/blob/master/media/scharr.png">
+  <img src="media/scharr.png", width="360">
 </p>
 
 #### Dilation
