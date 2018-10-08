@@ -164,7 +164,7 @@ For this model, our error metric would mainly be accuracy. This appears to be th
 ### Training Scheme
 Our AlexNet model trained for ~ 4500 iterations, which elapsed over 4 hours in time. 
 
-### Results
+### Evaluation
 Accuracy for fish egg/non-fish egg classes on validation set using AlexNet
 
 - Accuracy: 97.61%
@@ -174,9 +174,10 @@ Accuracy for fish egg/non-fish egg classes on validation set using AlexNet
 | ------------- |:-------------:|
 | ![cm.png](media/cm.png)              | ![roc.png](media/roc.png)              |
 
-Correctly predicted fish egg counts and size detection from test set after quality control from PhD biologist Brian Stock from the Semmens Lab at Scripps Institution of Oceanography
-- / 3382 (%) predicted fish egg images
-- / 3382 (%) valid object size detection
+Given the adequate performance of our AlexNet model on the validation set, 
+we can justify that the model would be ready to detect the fish eggs from 
+the unlabeled test images.
+
 <br />
 <br />
 
@@ -223,9 +224,37 @@ After applying our edge detection and morphology operations, our process simplif
 ![object.png](media/object_detection.png)
 <br />
 <br />
+
+## Results
+Running our AlexNet model on the unlabeled test images, below are the results for our fish egg image and size detection. These results were validated by PhD candidate of Scripps Institute of Oceanography , Brian Stock. Stock manually went through the predicted fish eggs and non-fish eggs of the test set, by using an image mosaic viewer, SPCView Caymans Data (1.0.1), that includes an annotation tool to mark false positives/negatives for the predicted images. As for the size detection results validation, Stock used ImageJ, to manually measure the diameter size of the fish egg.
+
+While obtaining the false positive rate of the fish eggs is straightforward, the false negative rate was determined by searching randomly through 20,000 images and searching for all of the fish eggs, that had been missed by the model.
+
+400 false positives / 3153 predicted eggs = 0.127
+
+1 false negative / (20,000-194) = 5.048975e-05
+
+Final egg count = 2753
+
+| Automatic size detection        | Manual size detection           |
+| ------------- |:-------------:|
+| Elapsed time: 3m 13s              | Elapsed time: ~ 3h             |
+| ![auto_size.png](media/fish_egg_v2_sizes.png)| ![manual_size.png](media/Brian_manual_egg_sizes.png)              |
+
+Based off the automatic size detection results, it appears that the manual sizing method was much more accurate. It is believed that the automatic size detection had issues with three things:
+
+1. Cropping either the yolk sac or oil globule
+2. Over-estimating the diameter, due to the blur
+3. Identifying fish eggs with 1 or more objects in the image
+
+Seeing as how the task objective was to reduce the time to automatically size the fish eggs, while maintaining accuracy, we were successful with reducing the task time to ~1.66%, but suffered with accurately sizing the objects.
+
+With these results, we now hope to demonstrate that unhatched egggs, hatching eggs, and yolk-sac larvae are see only in the time windows that we expect, similar to the figure below.
+
+![hatch_egg.png](media/EC2_eggs_yolk_time__.png)
+
 ![part6.png](media/part6_a.jpg)
 ## Conclusion
-
 We trained a CNN model for binary fish egg classification to assist with annotating over 225,000 images and developed an object size detection algorithm for Nassau Grouper classification. We anticipate that future deployment of this new software could assist with real-time image recognition during field studies and shed further light on the fine-scale processes influencing fish population success.
 
 
